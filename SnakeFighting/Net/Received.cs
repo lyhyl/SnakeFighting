@@ -5,7 +5,7 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Snake.Net
+namespace SnakeFighting.Net
 {
     public class Received
     {

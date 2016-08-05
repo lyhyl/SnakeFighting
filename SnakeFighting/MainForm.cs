@@ -1,5 +1,5 @@
 ﻿using NetFwTypeLib;
-using Snake.GameMode;
+using SnakeFighting.GameMode;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Snake
+namespace SnakeFighting
 {
     public partial class MainForm : Form
     {

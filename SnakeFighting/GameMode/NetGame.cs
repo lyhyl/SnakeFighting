@@ -5,12 +5,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Snake.Helper;
+using SnakeFighting.Helper;
 using System.Net;
 using System.Net.Sockets;
 using System.Net.NetworkInformation;
+using SnakeFighting.Level;
+using System.Windows;
 
-namespace Snake.GameMode
+namespace SnakeFighting.GameMode
 {
     public class NetGame : Game
     {

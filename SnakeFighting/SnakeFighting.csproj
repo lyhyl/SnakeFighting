@@ -7,7 +7,7 @@
     <ProjectGuid>{43EA27ED-C2C5-4304-9B64-C826C2CC84E8}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Snake</RootNamespace>
+    <RootNamespace>SnakeFighting</RootNamespace>
     <AssemblyName>SnakeFighting</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -50,16 +50,22 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GameMode\Game.cs" />
     <Compile Include="GameMode\NetGame.cs" />
     <Compile Include="GameMode\SoloGame.cs" />
+    <Compile Include="Helper\IntersectionSolver.cs" />
+    <Compile Include="Helper\MathHelper.cs" />
+    <Compile Include="Level\AISnake.cs" />
+    <Compile Include="Level\PlayerSnake.cs" />
+    <Compile Include="Level\SnakeProperties.cs" />
     <Compile Include="Net\NetDefaultConfig.cs" />
     <Compile Include="Net\Received.cs" />
     <Compile Include="Net\UdpListener.cs" />
     <Compile Include="Net\UdpUser.cs" />
-    <Compile Include="Snake.cs" />
+    <Compile Include="Level\Snake.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -68,7 +74,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Helper\Vector.cs" />
+    <Compile Include="Helper\VectorExtsion.cs" />
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>

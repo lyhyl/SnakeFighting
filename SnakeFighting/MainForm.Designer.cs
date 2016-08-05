@@ -1,4 +1,4 @@
-﻿namespace Snake
+﻿namespace SnakeFighting
 {
     partial class MainForm
     {
@@ -39,7 +39,7 @@
             this.DoubleBuffered = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
-            this.Text = "Snake";
+            this.Text = "Snake Fighting";
             this.ResumeLayout(false);
 
         }

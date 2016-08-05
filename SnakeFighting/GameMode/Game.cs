@@ -1,4 +1,4 @@
-﻿using Snake.Helper;
+﻿using SnakeFighting.Helper;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -6,17 +6,18 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Forms;
 
-namespace Snake.GameMode
+namespace SnakeFighting.GameMode
 {
     public delegate void GameEventHandler(object sender, EventArgs args);
     public abstract class Game
     {
         private bool running = true;
-        private Vector offset = Vector.Zero;
+        private Vector offset = VectorExtsion.Zero;
 
-        protected float LockFPS { set; get; }
+        protected double LockFPS { set; get; }
         protected Form MainForm { set; get; }
 
         public event GameEventHandler Exited;
@@ -53,7 +54,7 @@ namespace Snake.GameMode
 
         private void Form_Paint(object sender, PaintEventArgs e)
         {
-            e.Graphics.TranslateTransform(offset.X, offset.Y);
+            e.Graphics.TranslateTransform((float)offset.X, (float)offset.Y);
             Render(e.Graphics);
         }
 

@@ -61,6 +61,8 @@
     <Compile Include="Level\AISnake.cs" />
     <Compile Include="Level\PlayerSnake.cs" />
     <Compile Include="Level\SnakeProperties.cs" />
+    <Compile Include="Level\SnakeSkin.cs" />
+    <Compile Include="Level\SnakeStatus.cs" />
     <Compile Include="Net\NetDefaultConfig.cs" />
     <Compile Include="Net\Received.cs" />
     <Compile Include="Net\UdpListener.cs" />
@@ -74,9 +76,10 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Helper\VectorExtsion.cs" />
+    <Compile Include="Helper\MathExtension.cs" />
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

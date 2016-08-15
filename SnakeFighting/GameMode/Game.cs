@@ -11,11 +11,21 @@ using System.Windows.Forms;
 
 namespace SnakeFighting.GameMode
 {
-    public delegate void GameEventHandler(object sender, EventArgs args);
+    public delegate void GameEventHandler(object sender, EventArgs e);
+    public class MouseClickEventArgs : EventArgs
+    {
+        public Vector Location { private set; get; }
+        public MouseButtons Button { private set; get; }
+        public MouseClickEventArgs(Vector location,MouseButtons button)
+        {
+            Location = location;
+            Button = button;
+        }
+    }
     public abstract class Game
     {
         private bool running = true;
-        private Vector offset = VectorExtsion.Zero;
+        private Vector offset = MathExtension.VZero;
 
         protected double LockFPS { set; get; }
         protected Form MainForm { set; get; }
@@ -38,7 +48,7 @@ namespace SnakeFighting.GameMode
             Stopwatch watch = new Stopwatch();
             watch.Start();
             long prevTime = watch.ElapsedMilliseconds;
-            OnStarted();
+            OnStarted(new EventArgs());
             while (running)
             {
                 long currTime = watch.ElapsedMilliseconds;
@@ -49,7 +59,7 @@ namespace SnakeFighting.GameMode
                 RunLogical(elapsedTime);
                 MainForm.Invalidate();
             }
-            OnExited();
+            OnExited(new EventArgs());
         }
 
         private void Form_Paint(object sender, PaintEventArgs e)
@@ -60,20 +70,20 @@ namespace SnakeFighting.GameMode
 
         private void Form_MouseClick(object sender, MouseEventArgs e)
         {
-            OnMouseClick(e.Button, new Vector(e.X, e.Y) - offset);
+            OnMouseClick(new MouseClickEventArgs(new Vector(e.X, e.Y) - offset, e.Button));
         }
 
-        protected virtual void OnExited()
+        protected virtual void OnExited(EventArgs e)
         {
-            Exited?.Invoke(this, new EventArgs());
+            Exited?.Invoke(this, e);
         }
 
-        protected virtual void OnStarted()
+        protected virtual void OnStarted(EventArgs e)
         {
-            Started?.Invoke(this, new EventArgs());
+            Started?.Invoke(this, e);
         }
 
-        protected abstract void OnMouseClick(MouseButtons button, Vector location);
+        protected abstract void OnMouseClick(MouseClickEventArgs e);
         protected abstract void RunLogical(long elapsedTime);
         protected abstract void Render(Graphics graphics);
     }

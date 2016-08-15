@@ -24,7 +24,7 @@ namespace SnakeFighting.GameMode
         {
         }
 
-        protected override void OnMouseClick(MouseButtons button, Vector location)
+        protected override void OnMouseClick(MouseClickEventArgs e)
         {
         }
 

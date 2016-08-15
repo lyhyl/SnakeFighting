@@ -30,11 +30,11 @@ namespace SnakeFighting
             Task.Run(() => game.Run());
         }
 
-        private void Game_Started(object sender, EventArgs args)
+        private void Game_Started(object sender, EventArgs e)
         {
         }
 
-        private void Game_Exited(object sender, EventArgs args)
+        private void Game_Exited(object sender, EventArgs e)
         {
         }
 

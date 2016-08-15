@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SnakeFighting.Helper
 {
@@ -12,6 +8,7 @@ namespace SnakeFighting.Helper
         {
             return Math.Min(Math.Max(min, v), max);
         }
+
         public static int Clamp(int v, int min, int max)
         {
             return Math.Min(Math.Max(min, v), max);

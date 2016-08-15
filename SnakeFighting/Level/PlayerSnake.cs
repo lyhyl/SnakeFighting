@@ -12,18 +12,30 @@ namespace SnakeFighting.Level
     {
         private Vector? target = null;
         private Vector direction = new Vector(0, 1);
+        private bool prevActMeetConstraint = false;
+
+        public PlayerSnake(Vector offset) : base(offset)
+        {
+        }
+
+        protected override void OnActionMeetConstraint(EventArgs e)
+        {
+            base.OnActionMeetConstraint(e);
+            prevActMeetConstraint = true;
+        }
 
         public void HeadTo(Vector target)
         {
-            PrevActInConstraint = false;
             this.target = target;
+            prevActMeetConstraint = false;
         }
 
         protected override Action TakeAction(double elapsedTime)
         {
-            if (PrevActInConstraint)
+            if (prevActMeetConstraint)
                 target = null;
-            return new Action() { Toward = target.HasValue ? target.Value - Body[0] : VectorExtsion.Zero };
+            prevActMeetConstraint = false;
+            return new Action() { Toward = target.HasValue ? target.Value - Body[0] : MathExtension.VZero };
         }
     }
 }
